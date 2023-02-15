@@ -1,5 +1,7 @@
 package com.miniproject.LibraryManagementSystem.srviceclasses;
 
+import java.util.List;
+
 //import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,9 +13,8 @@ public class BookService {
 	@Autowired
 	private BookRepo bookRepo;
 
-	public Book saveAllBooks(Book book) {
-		return bookRepo.save(book);
-
+	public List<Book> saveAllBooks(List<Book> books) {
+		return (List<Book>)(bookRepo.saveAll(books));
 	}
 
 }
