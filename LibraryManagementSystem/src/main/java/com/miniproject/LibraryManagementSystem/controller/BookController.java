@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.miniproject.LibraryManagementSystem.mainclasses.Book;
@@ -26,7 +25,7 @@ public class BookController {
 	// Adding A List Of Books
 	@PostMapping("/save/all/books")
 	public List<Book> saveAllBooks(@RequestBody List<Book> books) {
-		return bookService.saveAllBooks(books);
+		return (List<Book>) (bookService.saveAllBooks(books));
 	}
 
 	// viewing All Books
@@ -40,14 +39,12 @@ public class BookController {
 	public void deleteABookById(@PathVariable Integer bookId) {
 		bookService.deleteBookById(bookId);
 	}
-	
-	
-//	
-//	@DeleteMapping("/delete/book/by{bookId}")
-//	public ResponseEntity<String> deleteBookById(@PathVariable Integer bookId) {
-//		bookService.deleteBookById(bookId);
-//		return ResponseEntity.ok("User Deleted Successfully");
-//	}
+
+	@DeleteMapping("/delete/book/by{bookId}")
+	public ResponseEntity<String> deleteBookById(@PathVariable Integer bookId) {
+		bookService.deleteBookById(bookId);
+		return ResponseEntity.ok("User Deleted Successfully");
+	}
 
 	@PutMapping("/Update/A/Book")
 	public List<Book> updateBook(@RequestBody List<Book> book) {
