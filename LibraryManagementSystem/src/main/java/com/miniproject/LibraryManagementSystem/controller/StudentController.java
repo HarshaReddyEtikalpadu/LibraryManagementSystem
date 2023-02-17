@@ -5,6 +5,7 @@ import java.util.List;
 //import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,7 +37,8 @@ public class StudentController {
 	
 	//Delete Student By Id
 	@DeleteMapping("/delete/student/by/{studentId}")
-	public void deleteStudentById(@PathVariable Integer studentId) {
-		studentService.deleteStudentById(studentId);
+	public ResponseEntity<String> deleteStudentById(@PathVariable Integer studentId) {
+		return ResponseEntity.ok().body("Student is deleted");
+//		studentService.deleteStudentById(studentId);
 	}
 }

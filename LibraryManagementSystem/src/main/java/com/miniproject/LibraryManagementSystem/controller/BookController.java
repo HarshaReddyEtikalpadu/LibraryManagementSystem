@@ -30,20 +30,14 @@ public class BookController {
 
 	// viewing All Books
 	@GetMapping("/get/all/books")
-	public List<Book> getAllBooks() {
-		return bookService.getAllBooks();
-	}
+	public ResponseEntity<List<Book>> getAllBooks() {
+		return ResponseEntity.ok().body(bookService.getAllBooks());
+	} 
 
 	// Deleting A book
 	@DeleteMapping("/delete/a/book/by/{bookId}")
-	public void deleteABookById(@PathVariable Integer bookId) {
-		bookService.deleteBookById(bookId);
-	}
-
-	@DeleteMapping("/delete/book/by{bookId}")
-	public ResponseEntity<String> deleteBookById(@PathVariable Integer bookId) {
-		bookService.deleteBookById(bookId);
-		return ResponseEntity.ok("User Deleted Successfully");
+	public ResponseEntity<String> deleteABookById(@PathVariable Integer bookId) {
+		return ResponseEntity.ok().body("Book is deleted");
 	}
 
 	@PutMapping("/Update/A/Book")

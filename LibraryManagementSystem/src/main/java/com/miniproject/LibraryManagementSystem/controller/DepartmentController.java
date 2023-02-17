@@ -14,45 +14,44 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.miniproject.LibraryManagementSystem.mainclasses.Department;
 import com.miniproject.LibraryManagementSystem.srviceclasses.DepartmentService;
+
 @RestController
 @RequestMapping("/student")
 public class DepartmentController {
 	@Autowired
 	private DepartmentService departmentService;
-	
+
 	// posting list of departments
 	@PostMapping("/save/all/departments")
-	public List<Department> saveAllDepartments(@RequestBody List<Department> departments){
+	public List<Department> saveAllDepartments(@RequestBody List<Department> departments) {
 		return departmentService.saveAllDepartments(departments);
 	}
-	
-	//Getting/Retrieving list of departments
+
+	// Getting/Retrieving list of departments
 	@GetMapping("/get/all/departments")
-	public List<Department> getAllDepartments(){
+	public List<Department> getAllDepartments() {
 		return departmentService.getAllDepartments();
 	}
-	
-	//Delete a particular department
+
+	// Delete a particular department
 	@DeleteMapping("/delete/department/{deptId}")
 	public void deleteDepartment(@PathVariable Integer deptId) {
 		departmentService.deleteDeptById(deptId);
 	}
-	
-	//Adding a department
+
+	// Adding a department
 	@PutMapping("/add/a/departmnet")
 	public void addDepartment(@RequestBody Department department) {
 		departmentService.addDepartment(department);
 	}
-	
-	//Modifying a Existing department
-	
-	
+
+	// Modifying a Existing department
+
 	@DeleteMapping("/delete/all/department")
 	public String deleteDepartments() {
 		departmentService.deleteDepts();
 		return "Departments deleted succesfully";
 	}
-	
-	
+
 
 }
