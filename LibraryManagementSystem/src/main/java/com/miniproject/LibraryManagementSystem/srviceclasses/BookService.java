@@ -46,6 +46,10 @@ public class BookService {
 		return bookRepo.findById(bookId).orElse(null);
 	}
 
+	public List<Book> findAll() {
+		return (List<Book>) bookRepo.findAll();
+	}
+
 
 	
 

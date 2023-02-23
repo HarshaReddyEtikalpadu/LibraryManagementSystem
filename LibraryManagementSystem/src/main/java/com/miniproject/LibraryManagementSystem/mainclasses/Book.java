@@ -6,12 +6,30 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="Book")
 public class Book {
+	public Book() {
+		super();
+
+	}
+
+	public Book(int bookId, String bookName, String bookAuthor, String releaseYear, String bookVersion, Date dateIssued,
+			Date dateReturned, boolean isAvailable) {
+		super();
+		this.bookId = bookId;
+		this.bookName = bookName;
+		this.bookAuthor = bookAuthor;
+		this.releaseYear = releaseYear;
+		this.bookVersion = bookVersion;
+		this.dateIssued = dateIssued;
+		this.dateReturned = dateReturned;
+		this.isAvailable = isAvailable;
+	}
+
 	// : Book name, Book author, Unique id, Release year, Book version,
 	// Book type (Magazine, fun, article, scientific, subject based),dateIssued,
 	// dateReturned
@@ -19,7 +37,6 @@ public class Book {
 //		Magazine, Fun, Article, Scientific, SubjectBased
 //	}
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int bookId;
 	private String bookName;
 	private String bookAuthor;
@@ -31,9 +48,9 @@ public class Book {
 	@Column(name = "IS_AVAILABLE")
 	private boolean isAvailable;
 
-	// @ManyToOne
-	// @Cascade(org.hibernate.annotations.CascadeType.ALL)
-	// private Student student;
+//	@ManyToOne
+//	@Cascade(org.hibernate.annotations.CascadeType.ALL)
+//	private Student student;
 	public int getBookId() {
 		return bookId;
 	}
@@ -74,12 +91,12 @@ public class Book {
 		this.bookVersion = bookVersion;
 	}
 
-	public Date getDateIsuued() {
+	public Date getDateIssued() {
 		return dateIssued;
 	}
 
-	public void setDateIsuued(Date dateIsuued) {
-		this.dateIssued = dateIsuued;
+	public void setDateIssued(Date dateIssued) {
+		this.dateIssued = dateIssued;
 	}
 
 	public Date getDateReturned() {
@@ -90,19 +107,19 @@ public class Book {
 		this.dateReturned = dateReturned;
 	}
 
-	public boolean isAvailble() {
+	public boolean isAvailable() {
 		return isAvailable;
 	}
 
-	public void setAvailble(boolean isAvailble) {
-		this.isAvailable = isAvailble;
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
 	}
-
-	@Override
-	public String toString() {
-		return "Book [bookId=" + bookId + ", bookName=" + bookName + ", bookAuthor=" + bookAuthor + ", releaseYear="
-				+ releaseYear + ", bookVersion=" + bookVersion + ", dateIssued=" + dateIssued + ", dateReturned="
-				+ dateReturned + ", isAvailble=" + isAvailable + "]";
-	}
+//	public Student getStudent() {
+//		return student;
+//	}
+//	public void setStudent(Student student) {
+//		this.student = student;
+//	}
+//	
 
 }

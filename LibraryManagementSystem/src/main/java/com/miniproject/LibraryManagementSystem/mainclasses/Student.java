@@ -14,25 +14,41 @@ import jakarta.persistence.Table;
 public class Student {
 	// Name, student id, department id, address, current batch year
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	
+	@GeneratedValue(strategy = GenerationType.AUTO)
+
 	private int studentId;
+
+	public Student() {
+		super();
+
+	}
+
+	public Student(int studentId, String name, Department department, Address address, Book book, int currentYear,
+			int gradYear) {
+		super();
+		this.studentId = studentId;
+		this.name = name;
+		this.department = department;
+		this.address = address;
+		this.book = book;
+		this.currentYear = currentYear;
+		this.gradYear = gradYear;
+	}
+
 	private String name;
-	private int departmentId;
-	
-	
-//	@OneToOne(cascade=CascadeType.ALL)
-//	@JoinColumn(name="fk_deptId")
-//	private Department department;
-	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="fk_addressId")
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "fk_deptId", referencedColumnName = "deptId")
+	private Department department;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "fk_addressId")
 	private Address address;
-	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="fk_uniqueId")
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "fk_bookId", referencedColumnName = "bookId")
 	private Book book;
-	
+
 	private int currentYear;
 	private int gradYear;
 
@@ -52,13 +68,13 @@ public class Student {
 		this.name = name;
 	}
 
-//	public Department getDepartment() {
-//		return department;
-//	}
-//
-//	public void setDepartment(Department department) {
-//		this.department = department;
-//	}
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
 
 	public Address getAddress() {
 		return address;
@@ -90,14 +106,6 @@ public class Student {
 
 	public void setGradYear(int gradYear) {
 		this.gradYear = gradYear;
-	}
-
-	public int getDepartmentId() {
-		return departmentId;
-	}
-
-	public void setDepartmentId(int departmentId) {
-		this.departmentId = departmentId;
 	}
 
 }
