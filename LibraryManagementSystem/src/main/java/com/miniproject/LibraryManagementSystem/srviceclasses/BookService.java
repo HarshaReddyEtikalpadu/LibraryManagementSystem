@@ -37,6 +37,7 @@ public class BookService {
 				break;
 			}
 		}
+
 		books.remove(Integer.valueOf(index));
 	}
 

@@ -21,6 +21,7 @@ public class DepartmentService {
 		{
 			return departmentsList;
 		}
+
 		throw new Exception("Unable to save departments list");
 	}
 	

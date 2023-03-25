@@ -15,4 +15,5 @@ class ApiExceptionHandler extends ResponseEntityExceptionHandler {
             (Exception ex) {
         return ResponseEntity.internalServerError().body(ex.getMessage());
     }
+
 }

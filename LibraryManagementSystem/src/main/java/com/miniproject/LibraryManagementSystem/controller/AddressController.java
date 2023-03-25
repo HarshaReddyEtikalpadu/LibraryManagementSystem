@@ -22,7 +22,8 @@ private AddressService addressService;
 	public List<Address> saveAllAddress(@RequestBody List<Address> address) throws Exception {
 		return(List<Address>)(addressService.saveAllAddress(address));
 	}
-	
+
+
 	//single address
 	@PostMapping("/save/address")
 	public Address saveAddress(Address address) throws Exception {

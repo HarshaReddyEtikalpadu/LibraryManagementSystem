@@ -29,6 +29,7 @@ public class StudentController extends Throwable {
 		return (List<Student>) (studentService.saveAllStudentsData(students));
 	}
 
+
 	// Adding A Single Student Details
 	@PostMapping("/save/student")
 	public Student saveStudent(@RequestBody(required = false) Student student) throws Exception {

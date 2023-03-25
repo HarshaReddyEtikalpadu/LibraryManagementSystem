@@ -27,6 +27,7 @@ public class DepartmentController {
 		return departmentService.saveAllDepartments(departments);
 	}
 
+
 	// Getting/Retrieving list of departments
 	@GetMapping("/get/all/departments")
 	public List<Department> getAllDepartments() throws Exception {
