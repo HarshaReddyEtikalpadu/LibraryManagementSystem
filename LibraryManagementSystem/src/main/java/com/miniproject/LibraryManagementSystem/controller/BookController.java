@@ -28,7 +28,7 @@ public class BookController {
 	
 	// viewing All Books
 		@GetMapping("/get/all/books")
-		public ResponseEntity<List<Book>> getAllBooks() {
+		public ResponseEntity<List<Book>> getAllBooks() throws Exception {
 			return ResponseEntity.ok().body(bookService.getAllBooks());
 		} 
 		// Deleting A book
@@ -66,7 +66,7 @@ public class BookController {
 	
 //	// Adding A List Of Books
 	@PostMapping("/save/all/books")
-	public List<Book> saveAllBooks(@RequestBody List<Book> books) {
+	public List<Book> saveAllBooks(@RequestBody List<Book> books) throws Exception {
 		return (List<Book>) (bookService.saveAllBooks(books));
 	}
 

@@ -14,13 +14,23 @@ public class AddressService {
 private AddressRepo addressRepo;
 
 //save all
-public List<Address> saveAllAddress(List<Address> address) {
-	return(List<Address>)(addressRepo.saveAll(address));
+public List<Address> saveAllAddress(List<Address> address) throws Exception {
+	List<Address> addresses =(List<Address>)(addressRepo.saveAll(address));
+	if(addresses == null)
+	{
+		throw new Exception("Unable to save the address list");
+	}
+	return addresses;
 }
 
 //save
-public Address saveAddress(Address address) {
-	return(Address)(addressRepo.save(address));
+public Address saveAddress(Address address) throws Exception {
+	Address addressSaved = addressRepo.save(address);
+	if(addressSaved == null)
+	{
+		throw new Exception("Unable to save the address");
+	}
+	return addressSaved;
 }
 
 

@@ -3,7 +3,8 @@ package com.miniproject.LibraryManagementSystem.srviceclasses;
 import java.util.List;
 import java.util.Optional;
 
-import com.miniproject.LibraryManagementSystem.repo.BookRepo;
+import javax.management.RuntimeErrorException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import com.miniproject.LibraryManagementSystem.repo.StudentRepo;
 public class StudentService {
 	@Autowired
 	private StudentRepo studentRepo;
+
 	// Adding List of Students
 	public List<Student> saveAllStudentsData(List<Student> students) throws Exception {
 		List<Student> studentsSaved = (List<Student>) studentRepo.saveAll(students);
@@ -63,13 +65,8 @@ public class StudentService {
 		return Optional.ofNullable(studentRepo.findById(studentId).orElseThrow(() -> new Exception("Student is not found with the id: " + studentId)));
 	}
 	
-	public Student updateStudent(Student student) throws Exception {
-		Student studentSaved = studentRepo.save(student);
-		if( studentSaved != null)
-		{
-			return studentSaved;
-		}
-		throw new Exception("Unable to update student");
+	public Student updateStudent(Student student) {
+		return studentRepo.save(student);
 	}
 	
 	
