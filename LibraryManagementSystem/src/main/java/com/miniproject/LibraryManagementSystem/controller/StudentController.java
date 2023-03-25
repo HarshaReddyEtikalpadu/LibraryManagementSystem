@@ -3,11 +3,8 @@ package com.miniproject.LibraryManagementSystem.controller;
 import java.util.List;
 import java.util.Optional;
 
-//import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,25 +19,29 @@ import com.miniproject.LibraryManagementSystem.srviceclasses.StudentService;
 
 @RestController
 @RequestMapping("/student")
-public class StudentController {
+public class StudentController extends Throwable {
 	@Autowired
 	private StudentService studentService;
 
 	// Posting list of students
 	@PostMapping("/save/all/students")
-	public List<Student> saveAllStudentsData(@RequestBody List<Student> students) {
+	public List<Student> saveAllStudentsData(@RequestBody List<Student> students) throws Exception {
 		return (List<Student>) (studentService.saveAllStudentsData(students));
 	}
 
 	// Adding A Single Student Details
 	@PostMapping("/save/student")
-	public Student saveStudent(@RequestBody Student student) {
+	public Student saveStudent(@RequestBody(required = false) Student student) throws Exception {
+		if(true)
+		{
+			throw new Exception("Unable to save the student");
+		}
 		return (Student) (studentService.saveStudent(student));
 	}
 
 	// Getting list of Students
 	@GetMapping("/get/students/list")
-	public List<Student> getAllStudentsData() {
+	public List<Student> getAllStudentsData() throws Exception {
 		return studentService.getAllStudentsData();
 	}
 
@@ -51,7 +52,7 @@ public class StudentController {
 	}
 	
 	//Updating Student Details by Id
-	public ResponseEntity<Student> updateStudent(@PathVariable Integer StudentId,@RequestBody Student student){
+	public ResponseEntity<Student> updateStudent(@PathVariable Integer StudentId,@RequestBody Student student) throws Exception {
 		Optional<Student> existingStudent = studentService.getStudent(StudentId);
 		if(existingStudent.isPresent()) {
 			Student updatedStudent = existingStudent.get();

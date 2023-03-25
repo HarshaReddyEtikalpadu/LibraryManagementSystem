@@ -23,25 +23,25 @@ public class DepartmentController {
 
 	// posting list of departments
 	@PostMapping("/save/all/departments")
-	public List<Department> saveAllDepartments(@RequestBody List<Department> departments) {
+	public List<Department> saveAllDepartments(@RequestBody List<Department> departments) throws Exception {
 		return departmentService.saveAllDepartments(departments);
 	}
 
 	// Getting/Retrieving list of departments
 	@GetMapping("/get/all/departments")
-	public List<Department> getAllDepartments() {
+	public List<Department> getAllDepartments() throws Exception {
 		return departmentService.getAllDepartments();
 	}
 
 	// Delete a particular department
 	@DeleteMapping("/delete/department/{deptId}")
-	public void deleteDepartment(@PathVariable Integer deptId) {
+	public void deleteDepartment(@PathVariable Integer deptId) throws Exception {
 		departmentService.deleteDeptById(deptId);
 	}
 
 	// Adding a department
 	@PutMapping("/add/a/departmnet")
-	public void addDepartment(@RequestBody Department department) {
+	public void addDepartment(@RequestBody Department department) throws Exception {
 		departmentService.addDepartment(department);
 	}
 

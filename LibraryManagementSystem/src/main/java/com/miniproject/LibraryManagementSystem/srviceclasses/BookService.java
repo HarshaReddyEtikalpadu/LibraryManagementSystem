@@ -15,41 +15,44 @@ public class BookService {
 	@Autowired
 	private BookRepo bookRepo;
 
-	public List<Book> saveAllBooks(List<Book> books) {
+	public List<Book> saveAllBooks(List<Book> books) throws  Exception {
+		List<Book> booksSaved =(List<Book>)(bookRepo.saveAll(books));
+		if(booksSaved == null)
+
+		{
+			throw new Exception("Unable to save the list of books");
+		}
 		return (List<Book>)(bookRepo.saveAll(books));
 		
 	}
 	
-	public List<Book> getAllBooks() {
+	public List<Book> getAllBooks() throws Exception {
+		List<Book> books = (List<Book>) (bookRepo.findAll());
+		if(books==null)
+		{
+			throw new Exception("Unable to fetch the books list");
+		}
 		return (List<Book>) (bookRepo.findAll());
 	}
 
 
 	
-	public void deleteBookById(Integer bookId) {
+	public void deleteBookById(Integer bookId) throws Exception {
 		Optional<Book> optionalbook = bookRepo.findById(bookId);
 		if(optionalbook.isPresent()) {
 			bookRepo.deleteById(bookId);
 		}
 		else {
 			
-				throw new RuntimeErrorException(null,"Not Found");
+				throw new Exception("Book not found with the id: "+bookId);
 				
 		}
 	}
 
-	public List<Book> book(List<Book> book) {
-		return (List<Book>) (bookRepo.saveAll(book));
-	}
 	
-	public Book findBookById(Integer bookId) { 
-		return bookRepo.findById(bookId).orElse(null);
+	public Book findBookById(Integer bookId) throws Exception {
+		return bookRepo.findById(bookId).orElseThrow(()->new Exception("Unable to find the book with id: "+bookId));
 	}
-
-	public List<Book> findAll() {
-		return (List<Book>) bookRepo.findAll();
-	}
-
 
 	
 
