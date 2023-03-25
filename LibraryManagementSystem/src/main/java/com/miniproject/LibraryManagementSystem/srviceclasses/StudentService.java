@@ -16,6 +16,8 @@ public class StudentService {
 	@Autowired
 	private StudentRepo studentRepo;
 
+	@Autowired
+	private BookRepo bookRepo;
 	// Adding List of Students
 	public List<Student> saveAllStudentsData(List<Student> students) throws Exception {
 		List<Student> studentsSaved = (List<Student>) studentRepo.saveAll(students);
@@ -50,6 +52,7 @@ public class StudentService {
 	public void deleteStudentById(Integer studentId)throws Exception {
 		Optional<Student> optionalStudent = studentRepo.findById(studentId);
 		if (optionalStudent.isPresent()) {
+			optionalStudent.get().getBook().setAvailable(true);
 			studentRepo.deleteById(studentId);
 		} else {
 			throw new Exception(
