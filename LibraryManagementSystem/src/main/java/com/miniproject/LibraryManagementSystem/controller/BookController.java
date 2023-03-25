@@ -8,16 +8,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.miniproject.LibraryManagementSystem.mainclasses.Address;
-import com.miniproject.LibraryManagementSystem.mainclasses.Book;
-import com.miniproject.LibraryManagementSystem.mainclasses.Student;
-import com.miniproject.LibraryManagementSystem.srviceclasses.BookService;
-import com.miniproject.LibraryManagementSystem.srviceclasses.StudentService;
+import com.miniproject.LibraryManagementSystem.entity.Book;
+import com.miniproject.LibraryManagementSystem.service.BookService;
 
 @RestController
 @RequestMapping("/student")

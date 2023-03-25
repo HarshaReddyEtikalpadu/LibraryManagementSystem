@@ -15,10 +15,10 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.miniproject.LibraryManagementSystem.mainclasses.Book;
+import com.miniproject.LibraryManagementSystem.entity.Book;
 
-import com.miniproject.LibraryManagementSystem.repo.BookRepo;
-import com.miniproject.LibraryManagementSystem.srviceclasses.BookService;
+import com.miniproject.LibraryManagementSystem.repository.BookRepo;
+import com.miniproject.LibraryManagementSystem.service.BookService;
 
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)

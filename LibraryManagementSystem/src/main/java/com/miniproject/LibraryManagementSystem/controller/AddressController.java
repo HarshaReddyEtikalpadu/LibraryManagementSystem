@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.miniproject.LibraryManagementSystem.mainclasses.Address;
-import com.miniproject.LibraryManagementSystem.srviceclasses.AddressService;
+import com.miniproject.LibraryManagementSystem.entity.Address;
+import com.miniproject.LibraryManagementSystem.service.AddressService;
 
 @RestController
 @RequestMapping("/student")

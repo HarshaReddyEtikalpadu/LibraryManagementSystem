@@ -1,15 +1,13 @@
-package com.miniproject.LibraryManagementSystem.srviceclasses;
+package com.miniproject.LibraryManagementSystem.service;
 
 import java.util.List;
 import java.util.Optional;
 
-import javax.management.RuntimeErrorException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.miniproject.LibraryManagementSystem.mainclasses.Student;
-import com.miniproject.LibraryManagementSystem.repo.StudentRepo;
+import com.miniproject.LibraryManagementSystem.entity.Student;
+import com.miniproject.LibraryManagementSystem.repository.StudentRepo;
 
 @Service
 public class StudentService {

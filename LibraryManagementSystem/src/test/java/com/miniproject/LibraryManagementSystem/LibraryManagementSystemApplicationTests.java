@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.miniproject.LibraryManagementSystem.controller.StudentController;
-import com.miniproject.LibraryManagementSystem.mainclasses.Student;
+import com.miniproject.LibraryManagementSystem.entity.Student;
 
 @SpringBootTest
 class LibraryManagementSystemApplicationTests {

@@ -15,9 +15,9 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.miniproject.LibraryManagementSystem.mainclasses.Department;
-import com.miniproject.LibraryManagementSystem.repo.DepartmentRepo;
-import com.miniproject.LibraryManagementSystem.srviceclasses.DepartmentService;
+import com.miniproject.LibraryManagementSystem.entity.Department;
+import com.miniproject.LibraryManagementSystem.repository.DepartmentRepo;
+import com.miniproject.LibraryManagementSystem.service.DepartmentService;
 
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)

@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.miniproject.LibraryManagementSystem.mainclasses.Department;
-import com.miniproject.LibraryManagementSystem.srviceclasses.DepartmentService;
+import com.miniproject.LibraryManagementSystem.entity.Department;
+import com.miniproject.LibraryManagementSystem.service.DepartmentService;
 
 @RestController
 @RequestMapping("/student")
