@@ -2,6 +2,7 @@ package com.miniproject.LibraryManagementSystem.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.management.RuntimeErrorException;
 
@@ -21,7 +22,9 @@ public class BookService {
 	}
 	
 	public List<Book> getAllBooks() {
-		return (List<Book>) (bookRepo.findAll());
+		List<Book> books = (List<Book>) bookRepo.findAll();
+		List<Book> avblBooks = books.stream().filter(b->b.isAvailable()).collect(Collectors.toList());
+		return avblBooks;
 	}
 	public void removeBooksFromList(int bookId,List<Book>books)
 	{
